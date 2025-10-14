@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import User_Empleados
 
-# Create your views here.
+
+def listUsers(request): 
+
+    AllUser= User_Empleados.objects.all() 
+    List={'Alluser': AllUser} 
+    return render(request,'templates_empleados/empleados.html',List)

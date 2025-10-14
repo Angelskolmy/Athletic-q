@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from .models import Membresia
 
-# Create your views here.
+def ListMebresias(request): 
+
+    AllistMemb= Membresia.objects.all() 
+    ContMemb= {'AllMebs':AllistMemb} 
+    return render(request, 'templates_membresias/membresias.html' ,ContMemb)

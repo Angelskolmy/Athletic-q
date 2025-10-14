@@ -1,0 +1,155 @@
+/* ================================
+   🎨 THEME CONFIGURATION
+   ================================ */
+
+/* Paleta principal (modo claro) */
+:root {
+  --color-primary: #dc3545;       /* Bootstrap Danger Red */
+  --color-primary-dark: #b02a37;  /* Versión más oscura */
+  --color-navbar-bg: #f1f3f5;     /* Gris claro elegante */
+  --color-sidebar-bg: #b02a37;    /* Sidebar rojo oscuro */
+  --color-sidebar-hover: #dc3545; /* Hover más claro */
+  --color-text: #212529;
+  --color-text-light: #ffffff;
+}
+
+/* ================================
+   🌐 GLOBAL STYLES
+   ================================ */
+
+body {
+  color: var(--color-text);
+  background-color: #f8f9fa;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* ================================
+   🔺 NAVBAR
+   ================================ */
+
+.navbar {
+  background-color: var(--color-navbar-bg) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand,
+.breadcrumb a {
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.breadcrumb a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ================================
+    🔺 SIDEBAR
+   ================================ */
+
+.app-sidebar {
+  background-color: var(--color-sidebar-bg) !important;
+  color: var(--color-text-light) !important;
+}
+
+.app-sidebar .nav-link {
+  color: var(--color-text-light) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app-sidebar .nav-icon {
+  color: var(--color-text-light);
+}
+
+.app-sidebar .nav-link:hover,
+.app-sidebar .nav-link.active {
+  background-color: var(--color-sidebar-hover);
+  color: var(--color-text-light) !important;
+}
+
+.app-sidebar .nav-treeview .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.app-sidebar .nav-treeview .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-light) !important;
+}
+
+/* ================================
+   🔺 BOTONES Y ELEMENTOS INTERACTIVOS
+   ================================ */
+
+/* Todos los botones primarios (excepto los de acciones) */
+.btn-search,
+.btn-success,
+.btn-outline-primary,
+.btn-outline-success{
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary-dark) !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+.btn-outline-primary:hover,
+.btn-outline-success:hover {
+  background-color: var(--color-primary-dark) !important;
+  color: #fff !important;
+}
+
+.btn-outline-success {
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+  border: 1px solid var(--color-primary) !important;
+}
+
+.btn-outline-success:hover {
+  background-color: transparent !important;
+  color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark) !important;
+}
+
+
+/* ================================
+   🔺 LINKS Y PAGINACIÓN
+   ================================ */
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+.page-link {
+  color: var(--color-primary);
+  border-color: rgba(220, 53, 69, 0.25);
+}
+
+.page-link:hover {
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.page-link.active,
+.page-item.active .page-link {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary-dark) !important;
+  color: #fff !important;
+}
+
+/* ================================
+   🔺 OTROS ELEMENTOS
+   ================================ */
+
+.badge.text-bg-primary {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
