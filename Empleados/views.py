@@ -6,4 +6,4 @@ def listUsers(request):
 
     AllUser= User_Empleados.objects.all() 
     List={'Alluser': AllUser} 
-    return render(request,'templates_empleados/empleados.html',List)
+    return render(request,'templates_usuarios/usuarios.html',List)

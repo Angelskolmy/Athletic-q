@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block tittle %}
-Empleados
+Usuarios
 {% endblock %}
 
 {% block content %}
@@ -10,12 +10,12 @@ Empleados
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-8">
-        <h3 class="mb-0"><i class="bi bi-person-workspace me-1"></i> Empleados</h3>
+        <h3 class="mb-0"><i class="bi bi-person-workspace me-1"></i> Usuarios</h3>
       </div>
       <div class="col-sm-4">
         <ol class="breadcrumb float-sm-end">
           <li class="breadcrumb-item"><a href="{% url 'index' %}">Inicio</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Empleados</li>
+          <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
         </ol>
       </div>
     </div>
@@ -28,14 +28,14 @@ Empleados
 
       <!-- Header con filtro y buscador -->
       <div class="card-header d-flex flex-wrap align-items-center justify-content-between">
-        <button class="btn btn-success mb-2 mb-sm-0" data-bs-toggle="modal" data-bs-target="#modalAgregarEmpleado">
-          <i class="bi bi-person-plus-fill me-1"></i> Agregar Empleado
+        <button class="btn btn-success mb-2 mb-sm-0" data-bs-toggle="modal" data-bs-target="#modalAgregarUsuario">
+          <i class="bi bi-person-plus-fill me-1"></i> Agregar Usuario
         </button>
 
         <!-- Filtro + Buscador -->
         <div class="d-flex align-items-center gap-2 ms-auto flex-wrap">
           <!-- Filtro -->
-          <select id="filtroEmpleado" class="form-select form-select-sm" style="width: 180px;">
+          <select id="filtroUsuario" class="form-select form-select-sm" style="width: 180px;">
             <option selected>Filtrar por...</option>
             <option value="admin">Administradores</option>
             <option value="trainer">Entrenadores</option>
@@ -45,7 +45,7 @@ Empleados
 
           <!-- Buscador -->
           <div class="input-group input-group-sm" style="width: 250px;">
-            <input type="text" id="buscarEmpleado" class="form-control" placeholder="Buscar empleado...">
+            <input type="text" id="buscarUsuario" class="form-control" placeholder="Buscar usuario...">
             <button class="btn btn-outline-secondary" type="button">
               <i class="bi bi-search"></i>
             </button>
@@ -75,7 +75,7 @@ Empleados
             <tbody>
               <tr>
                 <td>{{ UsEmp.id  }}</td>
-                <td><img src="/static/{{ UsEmp.empleados_img }}" alt="Foto empleado" class="img-circle img-size-32"></td>
+                <td><img src="/static/{{ UsEmp.usuarios_img }}" alt="Foto usuario" class="img-circle img-size-32"></td>
                 <td>{{ UsEmp.first_name }}</td>
                 <td>{{ UsEmp.last_name }}</td>
                 <td>{{ UsEmp.Eps }}</td>
@@ -84,7 +84,7 @@ Empleados
                 <td>{{ UsEmp.email }}</td>
                 <td>{{ UsEmp.is_active }}</td> 
                 <td>
-                  <button class="btn btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#modalEditarEmpleado" title="Editar">
+                  <button class="btn btn-sm btn-primary me-1" data-bs-toggle="modal" data-bs-target="#modalEditarUsuario" title="Editar">
                     <i class="bi bi-pencil-fill"></i>
                   </button>
                   <button class="btn btn-sm btn-danger" title="Eliminar">
@@ -129,12 +129,12 @@ Empleados
   </div>
 </div>
 
-<!-- Modal Agregar Empleado -->
-<div class="modal fade" id="modalAgregarEmpleado" tabindex="-1">
+<!-- Modal Agregar Usuario -->
+<div class="modal fade" id="modalAgregarUsuario" tabindex="-1">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title"><i class="bi bi-person-plus-fill me-1"></i> Agregar Empleado</h5>
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title"><i class="bi bi-person-plus-fill me-1"></i> Agregar Usuario</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
 
@@ -142,26 +142,37 @@ Empleados
         {% csrf_token %}
         <div class="modal-body">
           <div class="row g-3">
-            <div class="col-md-6">
-              <label for="empId" class="form-label">Código</label>
-              <input type="text" class="form-control" id="empId" name="id" required>
-            </div>
+            <!-- Foto -->
             <div class="col-md-6">
               <label for="empPhoto" class="form-label">Foto</label>
               <input type="file" class="form-control" id="empPhoto" name="foto" accept="image/*" required>
             </div>
+
+            <!-- Nombre -->
             <div class="col-md-6">
               <label for="empName" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="empName" name="nombre" required>
             </div>
+
+            <!-- Apellido -->
             <div class="col-md-6">
               <label for="empLastName" class="form-label">Apellido</label>
               <input type="text" class="form-control" id="empLastName" name="apellido" required>
             </div>
+
+            <!-- Cédula -->
             <div class="col-md-6">
-              <label for="empBirth" class="form-label">Fecha de Nacimiento</label>
-              <input type="date" class="form-control" id="empBirth" name="fecha_nacimiento" required>
+              <label for="empCedula" class="form-label">Cédula</label>
+              <input type="text" class="form-control" id="empCedula" name="cedula" required>
             </div>
+
+            <!-- Correo -->
+            <div class="col-md-6">
+              <label for="empEmail" class="form-label">Correo</label>
+              <input type="email" class="form-control" id="empEmail" name="correo" required>
+            </div>
+
+            <!-- Género -->
             <div class="col-md-6">
               <label for="empGender" class="form-label">Género</label>
               <select class="form-select" id="empGender" name="genero" required>
@@ -171,40 +182,67 @@ Empleados
                 <option value="O">Otro</option>
               </select>
             </div>
+
+            <!-- EPS -->
             <div class="col-md-6">
-              <label for="empRole" class="form-label">Cargo</label>
-              <input type="text" class="form-control" id="empRole" name="cargo" placeholder="Ej: Entrenador, Recepcionista..." required>
+              <label for="empEPS" class="form-label">EPS</label>
+              <input type="text" class="form-control" id="empEPS" name="eps" placeholder="Ej: Sanitas, Sura..." required>
             </div>
+
+            <!-- Estado -->
             <div class="col-md-6">
-              <label for="empEmail" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="empEmail" name="correo" required>
+              <label for="empStatus" class="form-label">Estado</label>
+              <select class="form-select" id="empStatus" name="estado" required>
+                <option selected disabled value="">Seleccione...</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+              </select>
             </div>
-            <div class="col-md-6">
-              <label for="empPhone" class="form-label">Teléfono</label>
-              <input type="tel" class="form-control" id="empPhone" name="telefono" required>
-            </div>
+
+            <!-- 🆕 Campo de Huella -->
             <div class="col-12">
-              <label for="empAddress" class="form-label">Dirección</label>
-              <textarea class="form-control" id="empAddress" name="direccion" rows="2" required></textarea>
+              <label class="form-label">Registro de Huella</label>
+              <div class="d-flex align-items-center justify-content-between border rounded p-3 bg-light">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-fingerprint fs-3 text-danger"></i>
+                  <span id="finger-status" class="text-muted">Esperando registro...</span>
+                </div>
+                <button type="button" id="btn-capturar-huella" class="btn btn-outline-danger btn-sm">
+                  <i class="bi bi-fingerprint me-1"></i> Capturar Huella
+                </button>
+              </div>
+              <input type="hidden" id="fingerData" name="huella">
             </div>
           </div>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-danger">Guardar</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<!-- Modal Editar Empleado -->
-<div class="modal fade" id="modalEditarEmpleado" tabindex="-1">
+<!-- Script de simulación temporal -->
+<script>
+document.getElementById('btn-capturar-huella').addEventListener('click', () => {
+  const status = document.getElementById('finger-status');
+  status.textContent = 'Huella registrada correctamente ✅';
+  status.classList.remove('text-muted');
+  status.classList.add('text-success');
+  document.getElementById('fingerData').value = 'huella_simulada_12345';
+});
+</script>
+
+
+<!-- Modal Editar Usuario -->
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title"><i class="bi bi-pencil-square me-1"></i> Editar Empleado</h5>
+        <h5 class="modal-title"><i class="bi bi-pencil-square me-1"></i> Editar Usuario</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
 
