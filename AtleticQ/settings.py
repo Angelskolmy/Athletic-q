@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [   
+    'Historial_ventas', 
     'Historial',
     'Pago_Membresia',     
     'Membresias',
@@ -65,7 +66,7 @@ ROOT_URLCONF = 'AtleticQ.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "Templates_Universal" ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +76,10 @@ TEMPLATES = [
             ],
         },
     },
+] 
+
+STATICFILES_DIRS=[ 
+    BASE_DIR / "static",
 ]
 
 WSGI_APPLICATION = 'AtleticQ.wsgi.application'

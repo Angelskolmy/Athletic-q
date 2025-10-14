@@ -21,11 +21,12 @@ class producto(models.Model):
         default='Activo', 
         max_length=8, 
         db_column='Estado'
-    ) 
+    )  
+    prod_imagen= models.CharField(max_length=100, db_column='prod_imagen')
 
     class Meta: 
         db_table='producto'
         managed= False 
 
     def __str__(self): 
-        return f"Nombre{self.Nombre} - Descripcion{self.Descripcion} - Stock{self.Stock} - Pre_Compra{self.Precio_de_compra} - Pre_Venta{self.Precio_de_venta} "
+        return f"Nombre{self.Nombre} - Descripcion{self.Descripcion} - Stock{self.Stock} - Pre_Compra{self.Precio_de_compra} - Pre_Venta{self.Precio_de_venta} - prod_imagen{self.prod_imagen}"
