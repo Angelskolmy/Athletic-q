@@ -30,14 +30,14 @@
         <h3 class="fw-bold text-white">Iniciar Sesión</h3>
       </div>
 
-      <form method="POST" action="/index.html">
+      <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
         <div class="mb-3">
           <div class="input-group">
             <span class="input-group-text bg-transparent border-end-0 text-white">
               <i class="bi bi-person-fill"></i>
             </span>
-            <input type="text" class="form-control border-start-0" placeholder="Usuario" required>
+            <input type="text" class="form-control border-start-0" name="correo" placeholder="Usuario" required>
           </div>
         </div>
 
@@ -46,7 +46,7 @@
             <span class="input-group-text bg-transparent border-end-0 text-white">
               <i class="bi bi-lock-fill"></i>
             </span>
-            <input type="password" class="form-control border-start-0" placeholder="Contraseña" required>
+            <input type="password" class="form-control border-start-0" name="password" placeholder="Contraseña" required>
           </div>
         </div>
 

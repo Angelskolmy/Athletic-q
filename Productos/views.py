@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import producto 
 from .models import categoria
- 
+
 def listarProductos (request): 
 
     AllProd= producto.objects.all()  

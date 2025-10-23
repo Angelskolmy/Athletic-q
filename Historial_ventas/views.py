@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Historial_Ventas
- 
+
 
 def listHistorialV(request): 
 
